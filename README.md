@@ -100,6 +100,7 @@ npm run build
 | Safari | macOS | 15.2+ | ✅ Full support |
 | Safari | iOS/iPadOS | Any | ❌ Not supported |
 | Firefox | All | - | ❌ Not supported yet |
+| Brave | Desktop | 1.84+ | ✅ Full support |
 
 **Note:** iOS and iPadOS do not support File System Access API in any browser due to platform limitations.
 
