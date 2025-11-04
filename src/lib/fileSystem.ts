@@ -1,5 +1,31 @@
 import type { FileTreeItem } from '@/types';
 
+export type BrowserType = 'brave' | 'chrome' | 'edge' | 'safari' | 'firefox' | 'opera' | 'unknown';
+
+/**
+ * Detect the browser name
+ */
+export function detectBrowser(): BrowserType {
+  const userAgent = navigator.userAgent.toLowerCase();
+  const nav = navigator as { brave?: unknown };
+  
+  if (userAgent.includes('brave') || nav.brave) {
+    return 'brave';
+  } else if (userAgent.includes('edg')) {
+    return 'edge';
+  } else if (userAgent.includes('chrome')) {
+    return 'chrome';
+  } else if (userAgent.includes('safari') && !userAgent.includes('chrome')) {
+    return 'safari';
+  } else if (userAgent.includes('firefox')) {
+    return 'firefox';
+  } else if (userAgent.includes('opera') || userAgent.includes('opr')) {
+    return 'opera';
+  }
+  
+  return 'unknown';
+}
+
 /**
  * Check if File System Access API is supported
  */
